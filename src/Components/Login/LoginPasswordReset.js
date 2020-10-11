@@ -1,11 +1,12 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useFetch from '../../Hooks/useFetch';
 import useForm from '../../Hooks/useForm';
 import Button from '../Forms/Button';
 import Input from '../Forms/Input';
 import { PASSWORD_RESET } from '../../api';
 import Error from '../Helper/Error';
+import Head from '../Helper/Head';
 
 const LoginPasswordReset = () => {
   const [login, setLogin] = React.useState('');
@@ -33,10 +34,11 @@ const LoginPasswordReset = () => {
     const login = params.get('login');
 
     if (key) setKey(key);
-    if (login) setKey(login);
+    if (login) setLogin(login);
   }, []);
   return (
     <div>
+      <Head title="Resete a senha" />
       <h1 className="title">Reset a Senha</h1>
       <form onSubmit={handleSubmit}>
         <Input
